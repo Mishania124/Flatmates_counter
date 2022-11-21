@@ -1,5 +1,5 @@
 from flat import Bill, Flatmate
-from reports import PdfReport
+from reports import PdfReport, FileSharer
 
 a = int(input('Hey user,enter bill amount: '))
 b = input('Enter the period: ')
@@ -16,5 +16,9 @@ Marry = Flatmate(name=e, days_in_house=f)
 print(f'{c} pays:', round(John.pays(bill=the_bill, flatmate2=Marry), 2))
 print(f'{e} pays:', round(Marry.pays(bill=the_bill, flatmate2=John), 2))
 
-pdf_report = PdfReport(filename='Report1.pdf')
+pdf_report = PdfReport(filename=f'{the_bill.period}.pdf')
 pdf_report.gererate(flatmate1=John, flatmate2=Marry, bill=the_bill)
+
+file_sharer = FileSharer(filepath=pdf_report.filename)
+
+print(file_sharer.share())
