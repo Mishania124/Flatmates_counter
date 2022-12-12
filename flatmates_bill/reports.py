@@ -41,7 +41,7 @@ class PdfReport:
         pdf.cell(w=100, h=25, txt=flatmate2.name, border=0)
         pdf.cell(w=100, h=25, txt=flatmate2_pay, border=0, ln=1)
 
-        os.chdir('../files')
+        os.chdir('files')
         pdf.output(self.filename)
 
         webbrowser.open(self.filename)
